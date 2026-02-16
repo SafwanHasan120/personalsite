@@ -11,6 +11,9 @@ import {
   Award,
   ExternalLink,
   Calendar,
+  FlaskConical,
+  Code2,
+  Users,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
@@ -21,7 +24,14 @@ import {
   skills,
   projects,
   social,
+  logoStrip,
 } from "@/data/site";
+
+const roleIcons = {
+  research: FlaskConical,
+  engineering: Code2,
+  leadership: Users,
+} as const;
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -107,31 +117,61 @@ export default function Home() {
           </AnimatedSection>
         </section>
 
-        {/* Experience: list first, then skills */}
+        {/* Experience: logo strip, timeline cards, then skills */}
         <Section
           id="experience"
           title="Experience"
           subtitle="Background and core competencies."
         >
-          <div className="space-y-12">
-            <AnimatedSection>
-              <ul className="space-y-8">
-                {experience.map((item, index) => (
-                  <li
-                    key={index}
-                    className="pl-6 border-l-2 border-[#262626]"
-                  >
-                    <p className="font-medium text-white">{item.role}</p>
-                    <p className="text-gray-500 text-sm mt-0.5">
-                      {item.company} · {item.period}
-                    </p>
-                    <p className="text-gray-400 text-sm mt-2 leading-relaxed">
-                      {renderWithBold(item.description)}
-                    </p>
-                  </li>
-                ))}
+          <div className="space-y-10">
+            
+
+            {/* Timeline + cards */}
+            <div className="relative">
+              {/* Vertical line */}
+              <div
+                className="absolute left-[15px] md:left-[19px] top-0 bottom-0 w-px bg-[#262626]"
+                aria-hidden
+              />
+              <ul className="space-y-6">
+                {experience.map((item, index) => {
+                  const Icon = roleIcons[item.roleType];
+                  return (
+                    <AnimatedSection key={index}>
+                      <li className="relative pl-12 md:pl-14">
+                        {/* Timeline node */}
+                        <div
+                          className="absolute left-0 top-6 w-[30px] md:w-[38px] flex justify-center"
+                          aria-hidden
+                        >
+                          <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#404040] ring-4 ring-[#0a0a0a]" />
+                        </div>
+                        {/* Card with subtle depth */}
+                        <div className="rounded-lg bg-[#171717] border border-[#262626] p-5 md:p-6 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.4)] hover:border-[#404040] hover:shadow-[0_8px_32px_-4px_rgba(0,0,0,0.5)] transition-all duration-200">
+                          <div className="flex items-start gap-3">
+                            <div className="shrink-0 mt-0.5 p-1.5 rounded-md bg-[#262626] text-gray-500">
+                              {Icon && <Icon size={18} strokeWidth={1.8} />}
+                            </div>
+                            <div className="min-w-0">
+                              <p className="font-medium text-white">
+                                {item.role}
+                              </p>
+                              <p className="text-gray-500 text-sm mt-0.5">
+                                {item.company} · {item.period}
+                              </p>
+                              <p className="text-gray-400 text-sm mt-2 leading-relaxed">
+                                {renderWithBold(item.description)}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </AnimatedSection>
+                  );
+                })}
               </ul>
-            </AnimatedSection>
+            </div>
+
             <AnimatedSection>
               <h3 className="font-serif text-lg font-medium text-white mb-6 flex items-center gap-2">
                 <Award size={20} className="text-gray-500" />

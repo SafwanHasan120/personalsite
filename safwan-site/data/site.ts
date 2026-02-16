@@ -2,7 +2,7 @@ export const site = {
   name: "Safwan Hasan",
   tagline: "High School Senior | AI Researcher | Software Engineer",
   headshot: "/headshot.png", // swap to /headshot.jpg when you add it to public/
-  about: `I’m a high school senior at Tesla STEM High School in the Seattle area, focused on AI research and full-stack engineering. I’ve worked on applied ML projects spanning medical imaging and atypical speech translation, and I enjoy turning messy real-world data into reliable, user-facing systems. Lately, I’ve been building products that blend modern web stacks with AI to help people work faster—whether that’s coding, writing, or research. I also enjoy reading, playing chess, and learning new things.`,
+  about: `I’m a student software engineer and AI researcher interested in building systems that turn complex data into tools people can actually use. My work spans machine learning, full-stack development, and applied research, with experience taking ideas from experimentation to deployment. I enjoy collaborating in technical teams, asking thoughtful questions, and refining solutions through iteration, and am particularly interested in projects at the intersection of computer science and language. I’m actively seeking opportunities where I can learn from experienced engineers while contributing meaningful, well-designed solutions.`,
   email: "safwanhasan120@outlook.com",
 } as const;
 
@@ -11,6 +11,7 @@ export const experience = [
     role: "AI Research Intern",
     company: "Mobile Intelligence Lab (UW Allen School)",
     period: "Jul 2025 – Sep 2025",
+    roleType: "research",
     description:
       "Worked on an **atypical speech translation** project; developed **data-driven** insights on **ALS** and Parkinson’s speech patterns, expanded the model beyond **Cerebral Palsy**, and built a **deployment pipeline** validated across devices.",
   },
@@ -18,6 +19,7 @@ export const experience = [
     role: "Summer Research Intern",
     company: "Stanford AIMI Center",
     period: "Jun 2024 – Jul 2024",
+    roleType: "research",
     description:
       "Selected as **1 of 26 interns** nationwide; built a **lung disease classification** pipeline by tokenizing radiology reports (**SpaCy**) and training a **ResNeXt-50** model with **LibAUC** optimization; team won **1st place** for the final presentation and pipeline.",
   },
@@ -25,6 +27,7 @@ export const experience = [
     role: "Lead Software Engineering Intern",
     company: "Rove (YC W24)",
     period: "Sep 2024 – Dec 2024",
+    roleType: "engineering",
     description:
       "**Co-led** a team of interns to build Rove’s flight booking service. Spearheaded frontend architecture using **React**, designed booking flows and state management patterns, and coordinated sprint execution to deliver a scalable, production-ready user interface.",
   },
@@ -32,9 +35,17 @@ export const experience = [
     role: "Cofounder & Vice President (25–26) • Secretary (24–25)",
     company: "Applied Programming Club",
     period: "May 2024 – Present",
+    roleType: "leadership",
     description:
       "Led **full-stack web** projects for startups and local businesses while teaching **frontend** fundamentals; helped grow the club to **35+ active members**.",
   },
+] as const;
+
+/** Logos for the experience strip (greyscale). Replace with official logos if desired. */
+export const logoStrip = [
+  { name: "Y Combinator", src: "/logos/yc.svg" },
+  { name: "Stanford University", src: "/logos/stanford.svg" },
+  { name: "University of Washington", src: "/logos/uw.svg" },
 ] as const;
 
 export const skills = [
