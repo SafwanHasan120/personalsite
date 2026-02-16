@@ -1,24 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Personal portfolio site built with Next.js, styled after the [Penora](https://github.com/SafwanHasan120/penora) front-end: dark theme, Alegreya + Jost typography, and clean section layouts.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customizing Content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All copy and links live in **`data/site.ts`**. Edit that file to change:
+
+- **`site`** — Name, tagline, headshot path, about paragraph, email
+- **`experience`** — Roles, companies, dates, descriptions
+- **`skills`** — List of skills (displayed as tags)
+- **`projects`** — Title, description, link, optional award
+- **`social`** — GitHub, LinkedIn, Instagram URLs
+
+**Headshot:** Put your photo at `public/headshot.jpg` and set `site.headshot` to `"/headshot.jpg"`. Until then, the site uses a placeholder at `public/headshot.svg`.
 
 ## Learn More
 
