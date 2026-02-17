@@ -16,8 +16,8 @@ const alegreya = Alegreya({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} | Personal Portfolio`,
-  description: "Safwan Hasan&apos;s personal portfolio",
+  title: `${site.name}`,
+  description: "Safwan Hasan's personal portfolio",
 };
 
 export default function RootLayout({

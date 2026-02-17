@@ -179,7 +179,7 @@ export default function Home() {
         <Section
           id="experience"
           title="Experience"
-          subtitle="Background and core competencies."
+          subtitle="Background and skills"
         >
           <div className="space-y-10">
             
@@ -232,7 +232,7 @@ export default function Home() {
 
             <AnimatedSection>
               <h3 className="font-serif text-lg font-medium text-white mb-6 flex items-center gap-2">
-                <Award size={20} className="text-gray-500" />
+                
                 Skills
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -290,7 +290,7 @@ export default function Home() {
         <Section
           id="connect"
           title="Connect"
-          subtitle="Find me on these platforms."
+          subtitle="Reach out!"
         >
           <AnimatedSection className="flex flex-wrap gap-3 -mt-6">
             <a
