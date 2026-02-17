@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { Typewriter } from "react-simple-typewriter";
 import {
   Github,
   Linkedin,
@@ -77,45 +78,102 @@ function AnimatedSection({
 }
 
 export default function Home() {
+  const [showAbout, setShowAbout] = useState(false);
+
   return (
     <>
       <ParticleNetwork />
       <Navbar />
       <main className="relative z-10 min-h-screen pt-16">
-        <section
-          id="about"
-          className="min-h-screen flex flex-col md:flex-row md:items-center justify-center gap-10 md:gap-14 px-6 max-w-5xl mx-auto -mt-12"
-        >
-          <AnimatedSection className="shrink-0 flex justify-center md:justify-start">
-            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-[#262626] bg-[#171717]">
-              <Image
-                src={site.headshot}
-                alt={`${site.name} headshot`}
-                fill
-                sizes="(max-width: 768px) 192px, 224px"
-                className="object-cover"
-                priority
-              />
+      <section
+        id="about"
+        className="min-h-screen flex flex-col md:flex-row md:items-center justify-center gap-10 md:gap-14 px-6 max-w-5xl mx-auto md:-mt-12"
+      >
+        <AnimatedSection className="shrink-0 flex justify-center md:justify-start mt-8">
+          <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-[#262626] bg-[#171717]">
+            <Image
+              src={site.headshot}
+              alt={`${site.name} headshot`}
+              fill
+              sizes="(max-width: 768px) 192px, 224px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection className="flex-1">
+          <h1 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-2">
+            {site.name}
+          </h1>
+          <div className="text-gray-400 text-lg mb-4">
+              I'm a 
+              <span className="text-gray-400">
+                <Typewriter
+                  words={[
+                    " High School Student",
+                    " Product Builder",
+                    " Full-stack Developer",
+                    " Hackathon Winner",
+                    "n AI Researcher",
+                    " Community Leader",
+                  ]}
+                  loop={0}
+                  cursor
+                  cursorStyle={"_"}
+                />
+              </span>
             </div>
-          </AnimatedSection>
-          <AnimatedSection className="flex-1">
-            <h1 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-2">
-              {site.name}
-            </h1>
-            <p className="text-gray-400 text-lg mb-4">{site.tagline}</p>
-            <p className="text-gray-300 leading-relaxed whitespace-pre-line max-w-xl">
-              {site.about}
-            </p>
-            {site.email && (
-              <a
-                href={`mailto:${site.email}`}
-                className="inline-block mt-4 text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-2"
+
+          {/* Desktop: show about normally */}
+          <p className="hidden md:block text-gray-300 leading-relaxed whitespace-pre-line max-w-xl">
+            {site.about}
+          </p>
+
+          {/* Mobile: Learn more toggle */}
+          <div className="md:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAbout((v) => !v)}
+              aria-expanded={showAbout}
+              aria-controls="about-mobile"
+              className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              {showAbout ? "Show less" : "Learn more"}
+              <span
+                className={[
+                  "inline-block transition-transform duration-200",
+                  showAbout ? "rotate-180" : "rotate-0",
+                ].join(" ")}
+                aria-hidden="true"
               >
-                {site.email}
-              </a>
-            )}
-          </AnimatedSection>
-        </section>
+                ▾
+              </span>
+            </button>
+
+            <div
+              id="about-mobile"
+              className={[
+                "overflow-hidden transition-[max-height,opacity] duration-300 ease-out",
+                showAbout ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0",
+              ].join(" ")}
+            >
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line max-w-xl">
+                {site.about}
+              </p>
+            </div>
+          </div>
+
+          {site.email && (
+            <a
+              href={`mailto:${site.email}`}
+              className="inline-block mt-4 text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-2"
+            >
+              {site.email}
+            </a>
+          )}
+        </AnimatedSection>
+      </section>
 
         {/* Experience: logo strip, timeline cards, then skills */}
         <Section

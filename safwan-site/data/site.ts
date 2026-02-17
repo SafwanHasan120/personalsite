@@ -1,6 +1,5 @@
 export const site = {
   name: "Safwan Hasan",
-  tagline: "High School Senior | AI Researcher | Software Engineer",
   headshot: "/headshot.png", // swap to /headshot.jpg when you add it to public/
   about: `I’m a student software engineer and AI researcher interested in building systems that turn complex data into tools people can actually use. My work spans machine learning, full-stack development, and applied research, with experience taking ideas from experimentation to deployment. I enjoy collaborating in technical teams, asking thoughtful questions, and refining solutions through iteration, and am particularly interested in projects at the intersection of computer science and language. I’m actively seeking opportunities where I can learn from experienced engineers while contributing meaningful, well-designed solutions.`,
   email: "safwanhasan120@outlook.com",

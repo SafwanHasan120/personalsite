@@ -4,17 +4,19 @@ import React, { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { site } from "@/data/site";
+import ResumeModal from "@/components/ResumeModal";
 
 const navLinks = [
-  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Connect", href: "#connect" },
+  { label: "Resume", href: "#resume", isModal: true},
 ];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -22,6 +24,19 @@ export default function Navbar() {
       setHasScrolled(latest > 20);
     });
   }, [scrollY]);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    link: typeof navLinks[0]
+  ) => {
+    if (link.isModal) {
+      e.preventDefault();
+      setIsResumeModalOpen(true);
+      setIsMenuOpen(false);
+    } else {
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <motion.header
@@ -49,7 +64,7 @@ export default function Navbar() {
               <a
                 href={link.href}
                 className="text-sm text-gray-300 hover:text-white transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link)}
               >
                 {link.label}
               </a>
@@ -82,7 +97,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   className="block text-gray-300 hover:text-white transition-colors py-1"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link)}
                 >
                   {link.label}
                 </a>
@@ -91,6 +106,12 @@ export default function Navbar() {
           </ul>
         </motion.div>
       )}
+      {/* Resume Modal */}
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
+        resumeUrl="/resume.pdf"
+      />
     </motion.header>
   );
 }
