@@ -87,7 +87,7 @@ export default function Home() {
       <main className="relative z-10 min-h-screen pt-16">
       <section
         id="about"
-        className="min-h-screen flex flex-col md:flex-row md:items-center justify-center gap-10 md:gap-14 px-6 max-w-5xl mx-auto md:-mt-12"
+        className="md:min-h-screen flex flex-col md:flex-row md:items-center md:justify-center justify-start gap-10 md:gap-14 px-6 max-w-5xl mx-auto md:-mt-12 pt-8 pb-10"
       >
         <AnimatedSection className="shrink-0 flex justify-center md:justify-start mt-8">
           <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-[#262626] bg-[#171717]">
