@@ -80,6 +80,13 @@ export const projects = [
     award: "FBLA Website Coding & Development: 1st Regionals, 4th State (Qualified for Nationals)",
   },
   {
+    title: "PotLaunch",
+    description:
+      "Built a community-driven funding platform that enables transparent, decentralized capital formation using blockchain-based smart contracts. Implemented automated profit-sharing mechanisms, integrated Stripe for real-time revenue tracking, and designed a scalable full-stack interface for launching and managing ventures.",
+    link: "https://pot-launch.vercel.app/",
+    award: "Niyyah Hacks: 2nd Place",
+  },
+  {
     title: "9-1-1 Assistant",
     description:
       "Created a conversational TTS 9-1-1 responder emulator to address responder staffing shortages using a Next.js + Flask stack, plus GTTS, PyDub, and OpenAI APIs.",
@@ -93,6 +100,7 @@ export const projects = [
     link: "https://lostandfound-theta-seven.vercel.app/",
     award: "FBLA Regionals: 4th Place",
   },
+  
   {
     title: "FarmFresh+",
     description:
