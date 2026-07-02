@@ -73,6 +73,20 @@ export const skills = [
 
 export const projects = [
   {
+    title: "Synapse",
+    description:
+      "Built a shared AI memory and governance layer for engineering teams that plugs into tools like Cursor and VSCode. Designed a pnpm monorepo backend with PostgreSQL/pgvector, GitHub OAuth with JWT auth, and an events-ingestion pipeline using OpenAI embeddings for semantic search across developer-AI interactions. Pivoted the product from a shared memory store to a PR-style review layer, where agents propose context changes and humans approve before commit, exposed through an MCP server as the primary interface.",
+    link: "https://github.com/SafwanHasan120/Synapse",
+    award: "",
+  },
+  {
+    title: "Roots",
+    description:
+      "Developed a full-stack internship discovery and resume tailoring platform using Next.js and TypeScript. Built a scraping pipeline to aggregate internship listings with Fuse.js-powered fuzzy search and filtering, paired with a Claude-powered 'Tailor' feature that rewrites LaTeX resumes to match specific job descriptions via the Anthropic API. Focused on a clean, responsive UI and an efficient search/filter experience for job seekers.",
+    link: "https://github.com/SafwanHasan120/Roots",
+    award: "",
+  },
+  {
     title: "Tesla STEM Job Portal (STEMLink)",
     description:
       "Built an unofficial job portal for students/employers with admin controls for postings and applications using Next.js + Firebase, styled with Tailwind and Framer; integrated OpenAI tooling. Won 1st at FBLA Regionals and 4th at State, qualifying for Nationals.",
@@ -100,12 +114,11 @@ export const projects = [
     link: "https://lostandfound-theta-seven.vercel.app/",
     award: "FBLA Regionals: 4th Place",
   },
-  
   {
     title: "FarmFresh+",
     description:
       "Developed a farm-to-table marketplace startup concept with a full business plan: industry analysis, supply chain design, financial projections, and product mockups (Next.js + Figma).",
-    link: "https://www.fbla.org/media/2025/07/TOP_10_NLC_HS.pdf", 
+    link: "https://www.fbla.org/media/2025/07/TOP_10_NLC_HS.pdf",
     award: "FBLA Business Plan: 1st State, 2nd Nationals (200+ teams)",
   },
 ] as const;
