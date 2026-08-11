@@ -164,8 +164,6 @@ export default function Home() {
               </div>
             </div>
 
-            Wrap the links in a flex container and insert a divider between them:
-
             {site.email && site.school_email && (
               <div className="mt-4 flex items-center text-sm text-gray-400">
                 <a
