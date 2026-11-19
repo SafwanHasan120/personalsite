@@ -111,7 +111,7 @@ export default function Home() {
               <span className="text-gray-400">
                 <Typewriter
                   words={[
-                    " High School Student",
+                    " UW CS Student",
                     " Product Builder",
                     " Full-stack Developer",
                     " Hackathon Winner",
